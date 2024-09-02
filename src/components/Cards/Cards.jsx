@@ -4,32 +4,36 @@ function Cards({ results }) {
   let display;
   console.log(results);
   if (results) {
-    display = results.map((x) => {
+    display = results.map((data) => {
       return (
-        <div key={x.id} className="col-4 mb-4 position-relative">
+        <div key={data.id} className="col-4 mb-4 position-relative">
           <div className={`${styles.card}`}>
-            <img src={x.image} alt="" className={`${styles.img} img-fluid`} />
-            <div style={{ padding: "10px" }} className="content">
-              <div className="fs-4 fw-bold mb-4">{x.name}</div>
+            <img
+              src={data.image}
+              alt=""
+              className={`${styles.img} img-fluid`}
+            />
+            <div style={{ padding: "10pdata" }} className="content">
+              <div className="fs-4 fw-bold mb-4">{data.name}</div>
               <div className="fs-6">Last location</div>
-              <div className="fs-5">{x.location.name}</div>
+              <div className="fs-5">{data.location.name}</div>
             </div>
           </div>
           {(() => {
-            if (x.status === "Alive") {
+            if (data.status === "Alive") {
               return (
                 <div
                   className={`${styles.badge} position-absolute badge bg-success`}
                 >
-                  {x.status}
+                  {data.status}
                 </div>
               );
-            } else if (x.status === "Dead") {
+            } else if (data.status === "Dead") {
               return (
                 <div
                   className={`${styles.badge} position-absolute badge bg-danger`}
                 >
-                  {x.status}
+                  {data.status}
                 </div>
               );
             } else {
@@ -37,7 +41,7 @@ function Cards({ results }) {
                 <div
                   className={`${styles.badge} position-absolute badge bg-secondary`}
                 >
-                  {x.status}
+                  {data.status}
                 </div>
               );
             }
