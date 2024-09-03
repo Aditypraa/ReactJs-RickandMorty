@@ -2,7 +2,6 @@ import styles from "./Cards.module.scss";
 
 function Cards({ results }) {
   let display;
-  console.log(results);
   if (results) {
     display = results.map((data) => {
       return (
