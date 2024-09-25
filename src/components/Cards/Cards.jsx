@@ -1,11 +1,17 @@
+import { Link } from "react-router-dom";
 import styles from "./Cards.module.scss";
 
-function Cards({ results }) {
+function Cards({ results, page }) {
   let display;
+
   if (results) {
     display = results.map((data) => {
       return (
-        <div key={data.id} className="col-4 mb-4 position-relative">
+        <Link
+          key={data.id}
+          to={`${page}${data.id}`}
+          className="col-4 mb-4 position-relative"
+        >
           <div className={`${styles.card}`}>
             <img
               src={data.image}
@@ -45,7 +51,7 @@ function Cards({ results }) {
               );
             }
           })()}
-        </div>
+        </Link>
       );
     });
   } else {
